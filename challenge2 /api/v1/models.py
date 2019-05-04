@@ -35,7 +35,7 @@ class StudentModel(BaseModel):
         student_id = curr.fetchone()[0]
         database.commit()
         curr.close()
-        return student_id
+        return int(student_id)
 
     def get_all_students(self):
         """return all students from the db """
@@ -50,7 +50,7 @@ class StudentModel(BaseModel):
                 student_num=int(student_num),
                 name=name,
                 email=email,
-                course=course,
+                course=int(course),
                 created_on=str(date_created)
 
             )
@@ -88,7 +88,7 @@ class CourseModel(BaseModel):
         course_code = curr.fetchone()[0]
         database.commit()
         curr.close()
-        return course_code
+        return int(course_code)
 
     def get_all(self):
         """return all students from the db """

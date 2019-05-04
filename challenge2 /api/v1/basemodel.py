@@ -17,12 +17,15 @@ class BaseModel(object):
         """initialize the database"""
         self.db = init_db()
 
-    def check_exists(self, table, field, data):
+    def check_item_exists(self, table, field, data):
         """Check if the records exist"""
         curr = self.db.cursor()
         query = "SELECT * FROM {} WHERE {}='{}'".format(table, field, data)
         curr.execute(query)
-        return curr.fetchone() is not None
+        data = curr.fetchone()
+        if not data:
+            return False
+        return True
 
     def _type(self):
         """returns the name of the inheriting class"""
