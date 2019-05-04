@@ -1,0 +1,22 @@
+
+arifu_database{
+	"1":"Dairy Farming",
+	"2":"Crop Farming",
+	"1*1":{
+		"response" : "Hi, I'm Arifu. DigiFarm brings you a FREE training by Heifer International on how to improve your milk yields through good dairy farming practices. Reply with a number",
+		"1" : "English",
+		"2" : "Swahili"
+		}
+	//....
+}
+
+
+
+dififarm = {
+	"1":"Dairy Farming",
+	"2":"Crop Farming"
+	//... all data keys and values here for digifarm 
+}
+
+//similar to the case below
+Arifu = {}

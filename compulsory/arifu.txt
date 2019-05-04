@@ -1,0 +1,77 @@
+from database import arifu_database
+function load_data(text)
+    database = arifu_database
+    return database[text]
+
+// Reads the variables sent via POST and GET  from our gateway
+sms = Request.GET["sms"]
+sessionId   = Request.GET["sessionId"]
+serviceCode = Request.GET["serviceCode"]
+phoneNumber = Request.GET["phoneNumber"]
+text        =_POST["text"]
+
+if (sms == "Digifarm") {
+    // This is the first request. Note how we start the response with CON
+   response  = "CON DigiFarm offers FREE information on how to increase your yields. Reply with a number to start learning \n"
+   response .= "1. Dairy Farming \n"
+   response .= "2. Crop Farming "
+
+    if (text == "1*1") {
+       response = load_data(text)
+    }else if (text == "1*1*1"){
+        response  = "CON Reply with a number for information on: \n"
+        response .= "1. Breeding \n"
+        response .= "2. Feeding \n"
+        response .= "3. Health \n"
+        response .= "4. Milk handling \n"
+        response .= "5. Records \n"
+        response .= "6. Housing \n"
+        response .= "7. Tell a friend \n"
+        response .= "8. Quiz Certificate \n"
+        response .= "9. Swahili "
+    }else if (text == "1*1*1*2"){
+        response  = "CON Learn how to increase your income by increasing milk production and decreasing feed costs. Reply: \n"
+        response .= "1. Feeding \n"
+        response .= "2. Fodder production \n"
+        response .= "3. Dairy menu "
+    }else if (text == "1*1*1*2*2"){
+        response  = "CON Growing and conserving your own fodder is the cheapest way to ensure your cow has feed throughout. Reply to learn about: \n"
+        response .= "1. Types of fodder \n"
+        response .= "2. Fodder conservation \n"
+        response .= "3. Composting \n"
+        response .= "4. Feeding menu "
+    }else if (text == "1*1*1*2*2*1"){
+        response  = "CON Growing and conserving your own fodder is the cheapest way to ensure your cow has feed throughout. Reply to learn about: \n"
+        response .= "1. Types of fodder \n"
+        response .= "2. Fodder conservation \n"
+        response .= "3. Composting \n"
+    }else if (text == "1*2"){
+        response  = "CON Jibu na nambari kupata mafunzo kuhusu: \n"
+        response .= "1. Uzalishaji \n"
+        response .= "2. Lishe \n"
+        response .= "3. Afya \n"
+        response .= "4. Maziwa \n"
+        response .= "5. Rekodi \n"
+        response .= "6. Nyumba ya ng'ombe \n"
+        response .= "7. Ambia rafiki \n"
+        response .= "8. Maswali na cheti \n"
+        response .= "9. English "
+    }
+    .... continue with more objects
+
+}else {
+    response  = "CON Reply with a number for information on: \n"
+    response .= "1. Breeding \n"
+    response .= "2. Feeding \n"
+    response .= "3. Health \n"
+    response .= "4. Milk handling \n"
+    response .= "5. Records \n"
+    response .= "6. Housing \n"
+    response .= "7. Tell a friend \n"
+    response .= "8. Quiz Certificate \n"
+    response .= "9. Swahili "
+
+}
+// Echo the response back to the API
+header('Content-type: text/plain')
+Print (response)
